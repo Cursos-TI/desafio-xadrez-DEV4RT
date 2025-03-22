@@ -1,51 +1,105 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+// Definição do número de movimentos de cada peça
+int MT = 5;  // Movimento da Torre
+int MB = 5;  // Movimento do Bispo
+int MR = 8;  // Movimento da Rainha
+int MC = 1;  // Movimento do Cavalo (apenas uma vez para cima, cima e direita)
+
+// Funções de movimentação básica (cima, baixo, esquerda, direita)
+void moverCima(int n) {
+    for (int i = 0; i < n; i++) {
+        printf("cima");
+        if (i < n - 1) printf(", ");
+    }
+}
+
+void moverBaixo(int n) {
+    for (int i = 0; i < n; i++) {
+        printf("baixo");
+        if (i < n - 1) printf(", ");
+    }
+}
+
+void moverEsquerda(int n) {
+    for (int i = 0; i < n; i++) {
+        printf("esquerda");
+        if (i < n - 1) printf(", ");
+    }
+}
+
+void moverDireita(int n) {
+    for (int i = 0; i < n; i++) {
+        printf("direita");
+        if (i < n - 1) printf(", ");
+    }
+}
+
+// Funções de movimentação diagonal
+void moverCimaDireita(int n) {
+    for (int i = 0; i < n; i++) {
+        printf("cima direita");
+        if (i < n - 1) printf(", ");
+    }
+}
+
+void moverCimaEsquerda(int n) {
+    for (int i = 0; i < n; i++) {
+        printf("cima esquerda");
+        if (i < n - 1) printf(", ");
+    }
+}
+
+void moverBaixoDireita(int n) {
+    for (int i = 0; i < n; i++) {
+        printf("baixo direita");
+        if (i < n - 1) printf(", ");
+    }
+}
+
+void moverBaixoEsquerda(int n) {
+    for (int i = 0; i < n; i++) {
+        printf("baixo esquerda");
+        if (i < n - 1) printf(", ");
+    }
+}
+
+// Funções para a movimentação específica do Cavalo
+void moverCavaloCimaCimaDireita() {
+    printf("cima, cima, direita");
+}
+
+// Funções para movimentação das peças
+void moverTorre() {
+    printf("Torre: ");
+    moverDireita(MT);  // Mover n casas para a direita
+    printf(" (%d x)\n", MT);  // Mostrar o número de movimentos
+}
+
+void moverBispo() {
+    printf("Bispo: ");
+    moverCimaDireita(MB);  // Movimento diagonal para cima direita
+    printf(" (%d x)\n", MB);  // Mostrar o número de movimentos
+}
+
+void moverRainha() {
+    printf("Rainha: ");
+    moverCimaDireita(MR);  // Movimento diagonal para cima direita
+    printf(" (%d x)\n", MR);  // Mostrar o número de movimentos
+}
+
+void moverCavalo() {
+    printf("Cavalo: ");
+    moverCavaloCimaCimaDireita();  // Movimento específico para o cavalo
+    printf(" (%d x)\n", MC);  // Mostrar o número de movimentos
+}
 
 int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
-
-    // Definindo o número de casas para cada peça se mover
-    int casas_torre = 5;
-    int casas_bispo = 5;
-    int casas_rainha = 8;
-
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
-    // A Torre move-se apenas na horizontal ou vertical, no caso, movendo-se 5 casas para a direita.
-
-    printf("Movimento da Torre:\n");
-    for (int i = 1; i <= casas_torre; i++) {
-        printf("Direita\n"); // A Torre se move apenas para a direita
-    }
-
-    printf("\n");
-
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
-    // O Bispo se move na diagonal para cima e à direita, simulando 5 casas.
-
-    printf("Movimento do Bispo:\n");
-    for (int i = 1; i <= casas_bispo; i++) {
-        printf("Cima Direita\n"); // O Bispo se move na diagonal para cima e à direita
-    }
-
-    printf("\n");
-
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
-    // A Rainha pode se mover em todas as direções, mas neste caso, vamos simular 8 casas para a esquerda.
-
-    printf("Movimento da Rainha:\n");
-    int j = 1;
-    while (j <= casas_rainha) {
-        printf("Esquerda\n"); // A Rainha se move para a esquerda
-        j++;
-    }
+    // Chamadas das funções para cada peça com o número de movimentos
+    moverTorre();
+    moverBispo();
+    moverRainha();
+    moverCavalo();
 
     return 0;
 }
-
